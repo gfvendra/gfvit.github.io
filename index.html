@@ -4,115 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gfvIT</title>
-    <style>
-        /* ---------------------------------------------------- */
-        /* CSS: ESTILIZAÇÃO (AS CORES E O VISUAL) */
-        /* ---------------------------------------------------- */
 
-        /* Reseta margem e define fonte básica */
+    <meta name="description" content="gfvIT — Transformando desafios de TI em soluções. Projetos, artigos e contato de Gustavo Vendramini.">
+    <meta name="author" content="Gustavo Vendramini">
+
+    <meta property="og:title" content="gfvIT">
+    <meta property="og:description" content="Transformando desafios de TI em soluções.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png">
+    <meta property="og:url" content="https://gfvit.com.br">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="gfvIT">
+    <meta name="twitter:description" content="Transformando desafios de TI em soluções.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png">
+
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #5271ff; /* Cor de fundo suave */
-            color: #051d40;
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0e14;
+            background-image: radial-gradient(ellipse 80% 40% at 50% 0%, #1a2040 0%, #0c0e14 70%);
+            color: #e8eaed;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinha ao topo para parecer melhor no celular */
+            align-items: flex-start;
             min-height: 100vh;
         }
 
-        /* Container principal */
         .container {
             width: 100%;
-            max-width: 600px; /* Limita a largura como no Linktree */
-            padding: 20px;
+            max-width: 480px;
+            padding: 48px 24px;
             box-sizing: border-box;
             text-align: center;
         }
 
-        /* Avatar (Foto de Perfil) */
-        .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%; /* Deixa a imagem redonda */
-            object-fit: cover;
-            margin: 20px auto 10px;
-            border: 2px solid #ccc; /* Borda opcional */
+        .container > * {
+            opacity: 0;
+            animation: fadeUp 0.45s ease forwards;
         }
 
-        /* Título e Bio */
+        .avatar              { animation-delay: 0.05s; }
+        .title               { animation-delay: 0.12s; }
+        .bio                 { animation-delay: 0.18s; }
+        .link-button:nth-of-type(1) { animation-delay: 0.26s; }
+        .link-button:nth-of-type(2) { animation-delay: 0.32s; }
+        .link-button:nth-of-type(3) { animation-delay: 0.38s; }
+        .link-button:nth-of-type(4) { animation-delay: 0.44s; }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 18px;
+            border-radius: 14px;
+        }
+
         .title {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 1.55em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            color: #ffffff;
         }
 
         .bio {
-            font-size: 1em;
-            margin-bottom: 30px;
-            color: #051d40;
+            font-size: 0.93em;
+            font-weight: 400;
+            color: #5c6a88;
+            margin-bottom: 36px;
         }
 
-        /* Estilo dos Botões de Links */
         .link-button {
-            display: block; /* Ocupa a largura total */
-            background-color: #000000; /* Fundo preto (Estilo Linktree) */
-            color: white; /* Texto branco */
+            display: block;
+            background: rgba(82, 113, 255, 0.06);
+            color: #c8d0e8;
             padding: 15px 20px;
-            margin: 15px 0;
-            text-decoration: none; /* Remove sublinhado do link */
-            border-radius: 10px; /* Bordas arredondadas */
-            font-size: 1.1em;
+            margin: 11px 0;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 0.97em;
             font-weight: 600;
-            transition: background-color 0.2s, transform 0.1s; /* Transição suave */
-            border: 1px solid #000000;
+            border: 1px solid rgba(82, 113, 255, 0.25);
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease;
         }
 
         .link-button:hover {
-            background-color: #333333; /* Fica um pouco mais claro ao passar o mouse */
-            transform: translateY(-2px); /* Efeito de "levitar" */
+            background: rgba(82, 113, 255, 0.14);
+            border-color: rgba(82, 113, 255, 0.75);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(82, 113, 255, 0.12);
         }
 
-        /* Rodapé de Redes Sociais (Opcional) */
-        .social-icons {
-            margin-top: 30px;
-        }
-        .social-icon {
-            color: #666;
-            text-decoration: none;
-            font-size: 2em;
-            margin: 0 10px;
-        }
-        .social-icon:hover {
-            color: #000;
+        .link-button.primary {
+            background: #5271ff;
+            color: #ffffff;
+            border-color: #5271ff;
         }
 
+        .link-button.primary:hover {
+            background: #6b85ff;
+            border-color: #6b85ff;
+            box-shadow: 0 8px 32px rgba(82, 113, 255, 0.45);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        
-        <img src="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png" alt="Logo gfvIT" class="avatar">
-        
-        <div class="title">gfvIT</div>
-        <div class="bio">.Transformando desafios de TI em soluções 💡</div>
 
-        <a href="https://medium.com/@gustavofv" target="_blank" class="link-button" style="background-color: #d3be05; border-color: #051d40; color: #051d40;">
-            ✨ Meus Projetos
+        <img src="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png" alt="Logo gfvIT" class="avatar">
+
+        <div class="title">gfvIT</div>
+        <div class="bio">Transformando desafios de TI em soluções</div>
+
+        <a href="https://medium.com/@gustavofv" target="_blank" class="link-button primary">
+            Meus Projetos
         </a>
 
         <a href="https://www.instagram.com/gfv_it" target="_blank" class="link-button">
-            📸 Instagram
+            Instagram
         </a>
 
         <a href="mailto:contato@gfvit.com.br" class="link-button">
-            📧 Contato por E-mail
+            Contato por E-mail
         </a>
-        
+
         <a href="https://www.linkedin.com/in/gustavofvendramini/" target="_blank" class="link-button">
-            💼 Perfil do LinkedIn
+            LinkedIn
         </a>
-        </div>
+
+    </div>
 </body>
 </html>
