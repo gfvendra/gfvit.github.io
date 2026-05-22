@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação de Alertas de Segurança com IA — gfvIT</title>
+
+    <meta name="description" content="FortiGate + n8n + IA: do log ao alerta inteligente no Telegram em segundos.">
+    <meta name="author" content="Gustavo Vendramini">
+
+    <meta property="og:title" content="Automação de Alertas de Segurança com IA — Do Firewall ao Telegram">
+    <meta property="og:description" content="FortiGate + n8n + IA: do log ao alerta inteligente no Telegram em segundos.">
+    <meta property="og:image" content="img/img01.png">
+    <meta property="og:url" content="https://gfvit.com.br/projeto-01.html">
+    <meta property="og:type" content="article">
+
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0e14;
+            background-image: radial-gradient(ellipse 80% 40% at 50% 0%, #1a2040 0%, #0c0e14 70%);
+            color: #e8eaed;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 0.45s ease forwards 0.05s;
+        }
+
+        .header img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .header-text h1 {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: -0.4px;
+        }
+
+        .header-text span {
+            font-size: 0.82em;
+            color: #5c6a88;
+        }
+
+        .back-link {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: #5271ff;
+            text-decoration: none;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .back-link:hover {
+            color: #6b85ff;
+        }
+
+        /* Cover */
+        .cover {
+            width: 100%;
+            border-radius: 14px;
+            border: 1px solid rgba(82, 113, 255, 0.2);
+            display: block;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeUp 0.45s ease forwards 0.12s;
+        }
+
+        /* Article */
+        .article {
+            opacity: 0;
+            animation: fadeUp 0.45s ease forwards 0.2s;
+        }
+
+        .article-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            margin: 0 0 28px;
+        }
+
+        .article-body p {
+            font-size: 0.97em;
+            color: #b0bbd4;
+            line-height: 1.8;
+            margin: 0 0 20px;
+        }
+
+        .article-body h2 {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            margin: 36px 0 14px;
+        }
+
+        .article-body img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(82, 113, 255, 0.2);
+            display: block;
+            margin: 28px 0;
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(82, 113, 255, 0.15);
+        }
+
+        .tag-label {
+            font-size: 0.78em;
+            font-weight: 600;
+            color: #5c6a88;
+            margin-right: 4px;
+            align-self: center;
+        }
+
+        .tag {
+            font-size: 0.72em;
+            font-weight: 600;
+            color: #5271ff;
+            background: rgba(82, 113, 255, 0.12);
+            border: 1px solid rgba(82, 113, 255, 0.3);
+            border-radius: 6px;
+            padding: 4px 10px;
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <img src="https://raw.githubusercontent.com/gfvendra/gfvendra/main/.github/workflows/LOGO-gfvit.png" alt="Logo gfvIT">
+            <div class="header-text">
+                <h1>Projetos</h1>
+                <span>gfvIT</span>
+            </div>
+            <a href="projetos.html" class="back-link">← Voltar</a>
+        </header>
+
+        <img src="img/img01.png" alt="Automação de Alertas de Segurança com IA" class="cover">
+
+        <article class="article">
+            <h1 class="article-title">Automação de Alertas de Segurança com IA — Do Firewall ao Telegram</h1>
+
+            <div class="article-body">
+                <p>Firewalls geram volumes absurdos de logs. O problema não é falta de dado, é falta de tempo para analisar tudo em tempo real. Ameaças passam despercebidas por horas, às vezes dias, simplesmente porque ninguém consegue acompanhar o volume.</p>
+
+                <p>Foi pensando nisso que montei esse laboratório.</p>
+
+                <h2>O que foi construído</h2>
+
+                <p>Usando o n8n como orquestrador, criei um fluxo que começa no FortiGate e termina com um alerta inteligente chegando no Telegram. O FortiGate identifica tráfego suspeito e dispara o evento. O n8n captura esse evento e consulta o IP na AbuseIPDB, que retorna o score de reputação e o histórico de atividade maliciosa daquele endereço.</p>
+
+                <p>Com essas informações em mãos, um Agente de IA entra em cena para analisar o contexto, classificar a gravidade da ameaça e sugerir uma ação. Tudo isso é consolidado e enviado como uma mensagem estruturada e legível no Telegram, em questão de segundos.</p>
+
+                <img src="img/img02.png" alt="Fluxo de automação no n8n">
+
+                <h2>O que isso muda na prática</h2>
+
+                <p>O analista recebe no celular não apenas um aviso de IP bloqueado, mas o que aquele IP já fez, qual o risco real que ele representa e qual o próximo passo recomendado. Sem precisar abrir cinco ferramentas diferentes para chegar nessa conclusão.</p>
+
+                <p>Esse lab foi um exercício de pensar segurança de forma mais inteligente, menos volume de ruído, mais contexto útil na hora certa.</p>
+            </div>
+
+            <div class="tags">
+                <span class="tag-label">Stack:</span>
+                <span class="tag">n8n</span>
+                <span class="tag">FortiGate</span>
+                <span class="tag">AbuseIPDB</span>
+                <span class="tag">AI Agent</span>
+                <span class="tag">Telegram</span>
+            </div>
+        </article>
+
+    </div>
+</body>
+</html>
